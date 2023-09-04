@@ -4,29 +4,42 @@ import "./about.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
 // images
-import Cloudathon from "../../assets/Linkedin/Cloudathon.jpg";
-import Cloudathon2 from "../../assets/Linkedin/Cloudathon2.jpg";
+import Cloudathon from "../../assets/Cloudathon.jpg";
+
 
 const About = () => {
 
   // set the state of the instagram embedded content
   const [instagramLoaded, setInstagramLoaded] = useState(false);
+  const [showLoader, setShowLoader] = useState(true);
+
   
   // Runs the instagram embedded with every run
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://www.instagram.com/embed.js";
     script.async = true;
-    document.body.appendChild(script);
+
+    if (!instagramLoaded) {
+      document.body.appendChild(script);
+      setInstagramLoaded(true);
+    }
 
     return () => {
       document.body.removeChild(script);
     };
-  }, []);
+  }, [instagramLoaded]);
+
+  // Hide the loader once Instagram content is loaded
+  useEffect(() => {
+    if (instagramLoaded) {
+      setShowLoader(false);
+    }
+  }, [instagramLoaded]);
 
   // Images from local files
   const imageSrc = Cloudathon;
-  const imageSrc2 = Cloudathon2;
+ 
 
   // image2 caption contents
   const caption =
@@ -34,6 +47,8 @@ const About = () => {
 
   return (
     <div className="mt-4 container-fluid d-flex justify-content-center align-items-center">
+
+      
       <div className="col-lg-8 justify-content-center">
         {" "}
         <div className="card">
@@ -83,7 +98,7 @@ const About = () => {
             <Card.Body>
               <div className="d-flex flex-column align-items-start">
                 <img
-                  src={imageSrc2}
+                  src={imageSrc}
                   alt="Profile"
                   className="mb-4"
                   style={{ maxWidth: "100%" }}

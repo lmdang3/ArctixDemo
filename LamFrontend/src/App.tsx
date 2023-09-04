@@ -1,10 +1,10 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // Components
-import AppNavbar from './components/Navbar/AppNavbar';
-import AppFooter from './components/Footer/AppFooter';
+import Navbar from './components/Navbar/AppNavbar';
+import Footer from './components/Footer/AppFooter';
        
 // Pages
 import Home from './pages/home/home';
@@ -14,26 +14,22 @@ import './aos.css';
 
 
 
-const App = () => {
+function App() {
   return (
-
-    
-    <div className="">
-      <AppNavbar />
-
-      {/* Main Contents */}
-      <div>
+    <Router>
+            <div>
+        <Navbar /> {/* Display the navigation bar */}
       <Routes>
-        <Route path="/" element={ <Home/>}></Route>
-        <Route path="/about" element={ <About/>}/>
-      </Routes>
-    
-      </div>
-      <AppFooter />
-    </div>
+      <Route path='/' element={< Home />}></Route>
+      <Route path='/about' element={< About />}></Route>
+        {/* Add more routes as needed */}
+        <Route path="*" Component={() => <div>404 Not Found</div>} />
 
-  
+      </Routes>
+      <Footer /> {/* Display the footer */}
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;

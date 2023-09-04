@@ -32,6 +32,8 @@
   color: white;
 }
 
+/* RESPONSIVE CONTENT DUE TO THE VIEW PORT  */
+
 .content h1 {
   font-size: 5vw; /* Adjust the value based on your preference */
   margin-bottom: 10px;
@@ -43,6 +45,9 @@
 
 
 
+
+
+/* PARALAXX CONTENT  */
 @import url(https://fonts.googleapis.com/css?family=Oswald:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic);
 
