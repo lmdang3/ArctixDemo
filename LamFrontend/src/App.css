@@ -1,0 +1,24 @@
+.background {
+background-image: url("./assets/AppBanner1.jpg");
+background-size: cover;
+height:100vh;
+}
+
+/* .background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(96, 81, 81, 0.29);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.4px);
+  -webkit-backdrop-filter: blur(0.4px);
+} */
+
+
+.root {
+  height:100vh;
+}
