@@ -16,17 +16,21 @@ const About = () => {
   
   // Runs the instagram embedded with every run
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.instagram.com/embed.js";
-    script.async = true;
-
     if (!instagramLoaded) {
+      const script = document.createElement("script");
+      script.src = "https://www.instagram.com/embed.js";
+      script.async = true;
       document.body.appendChild(script);
       setInstagramLoaded(true);
     }
-
+  
     return () => {
-      document.body.removeChild(script);
+      if (instagramLoaded) {
+        const script = document.querySelector('script[src="https://www.instagram.com/embed.js"]');
+        if (script) {
+          document.body.removeChild(script);
+        }
+      }
     };
   }, [instagramLoaded]);
 
