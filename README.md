@@ -1,2 +1,2 @@
-# ArctixDemo
-A Simple Page Used To Showcase The Arctix Chatbot
+# Lam's Portfolio Page
+A Simple Website for Lam the developer.
